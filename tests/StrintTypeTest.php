@@ -11,8 +11,11 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function length()
     {
-        $str = new StringType('lorem ipsum');
-        $this->assertEquals(11, $str->length());
+        $str = new StringType('abcdef');
+        $this->assertEquals(6, $str->length());
+
+        $str = new StringType('');
+        $this->assertEquals(0, $str->length());
     }
 
     /**
@@ -20,7 +23,9 @@ class StringTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function slice()
     {
-        $str = new StringType('lorem ipsum');
-        $this->assertEquals('ipsum', $str->slice(6));
+        $str = new StringType('abcdef');
+
+        $this->assertEquals('f', $str->slice(-1));
+        $this->assertEquals('', $str->slice(1, 0));
     }
 }
