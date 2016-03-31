@@ -21,6 +21,8 @@ class StringType implements StringInterface
 
     /**
      * @return int
+     *
+     * @link http://php.net/strlen
      */
     public function length(): int
     {
@@ -34,6 +36,8 @@ class StringType implements StringInterface
      * @return StringInterface
      *
      * @throws \TypeError
+     *
+     * @link http://php.net/substr
      */
     public function slice(int $offset, $length = null): StringInterface
     {
@@ -44,6 +48,19 @@ class StringType implements StringInterface
         }
 
         return new self(substr($this->string, $offset, $length));
+    }
+
+    /**
+     * @param mixed $search
+     * @param mixed $replace
+     *
+     * @return StringType
+     *
+     * @link http://php.net/str_replace
+     */
+    public function replace($search, $replace): StringType
+    {
+        return new self(str_replace($search, $replace, $this->string));
     }
 
     /**

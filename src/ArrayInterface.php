@@ -6,4 +6,8 @@ namespace Sergiors\Purify;
 
 interface ArrayInterface extends ScalarInterface
 {
+    /**
+     * @return ArrayInterface
+     */
+    public function getArrayCopy();
 }

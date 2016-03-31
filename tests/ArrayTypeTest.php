@@ -21,8 +21,19 @@ class ArrayTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function join()
     {
-        $arr = new ArrayType(['a', 'b', 'c']);
-        $this->assertInstanceOf(StringInterface::class, $arr->join());
-        $this->assertEquals('abc', $arr->join());
+        $array = new ArrayType(['lastname', 'email', 'phone']);
+        $this->assertInstanceOf(StringInterface::class, $array->join());
+        $this->assertEquals('lastname,email,phone', $array->join(','));
+    }
+
+    /**
+     * @test
+     */
+    public function flip()
+    {
+        $trans = new ArrayType(['a' => 1, 'b' => 1, 'c' => 2]);
+        $expected = [1 => 'b', 2 => 'c'];
+
+        $this->assertEquals($expected, $trans->flip()->getArrayCopy());
     }
 }

@@ -12,7 +12,13 @@
         "php": "^7"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.2"
+        "phpunit/phpunit": "^5.2",
+        "phing/phing": "^2.14",
+        "pdepend/pdepend": "^2.2",
+        "phpmd/phpmd": "^2.4",
+        "squizlabs/php_codesniffer": "^2.5",
+        "phploc/phploc": "^2.1",
+        "sebastian/phpcpd": "^2.0"
     },
     "autoload": {
         "psr-4": {
